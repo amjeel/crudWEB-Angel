@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expo Managment System</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+<body>
+    <header class="container">
+        <nav>
+            <ul>
+                <li><b>Expo Managment System</b></li>
+            </ul>
+            <ul>
+                <li><a href="#">Integrantes</a></li>
+                <li><a href="#">Tareas</a></li>
+                <li><a href="#"></a>Mi perfil</li>
+                <li><a href="#" role="button">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Integrantes del equipo</h2>
+
+        <table id="tabla" class="overflow-auto striped">
+            <thead>
+                <tr>
+                    <!--"tr es table-row(fila)"-->
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>CORREO ELECTRONICO</th>
+                    <TH>ACCIONES</TH><!--botones eliminar y editar-->
+                </tr>
+            </thead>
+            <tbody>
+                <!--Aqui van los registros que vienen en el JSON-->
+            </tbody>
+        </table>
+    </main>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
