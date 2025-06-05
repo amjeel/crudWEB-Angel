@@ -44,5 +44,55 @@ ObtenerRegistros();
 
 //proceso para agregar registros
 const modal = document.getElementById("mdAgregar");
-const btnAdd = document.getElementById("btnAgregar");
-const btnClose = document.getElementById("cerrarModal")
+const btnAgregar = document.getElementById("btnAgregar");
+const btnCerrar = document.getElementById("cerrarModal");
+
+btnAgregar.addEventListener("click", () =>{
+    modal.showModal();
+});
+
+btnCerrar.addEventListener("click", ()=>{
+    modal.close();
+})
+
+//agregar un nuevo registro desde el frm
+
+document.getElementById("frmAgregar").addEventListener("submit", async e =>{
+    e.preventDefault(); //evita que los datos se envien por defecto ¿?
+
+    //capturar los vlores del formulario
+    const nombre = document.getElementById("txtNombre").value.trim();
+    const apellido = document.getElementById("txtApellido").value.trim();
+    const correo = document.getElementById("txtCorreo").value.trim();
+
+    //Validacion basica
+    if(!nombre || !apellido || !correo){
+        alert("Complete todos los campos")
+        return;
+    }
+
+    //Llamar a la API para enviar los datos
+    //llamar a la API y mandar datos
+    const respuesta = await fetch(API_URL, {
+        method: "POST",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({nombre,apellido,correo})
+    });
+ 
+    if(respuesta.ok){
+        //mensaje de confirmacion
+        alert("El registro fue agregado correctamente");
+ 
+        //limpiar el formulario
+        document.getElementById("frmAgregar").reset();
+ 
+        //cerrar el ,odal (dialog)
+        modal.close();
+ 
+        //recargar la tabla
+        ObtenerRegistros();
+    }
+    else{
+        alert("Hubo un error");
+    }
+});
