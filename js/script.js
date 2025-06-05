@@ -40,3 +40,9 @@ function MostrarRegistros(datos){
 
 
 ObtenerRegistros();
+
+
+//proceso para agregar registros
+const modal = document.getElementById("mdAgregar");
+const btnAdd = document.getElementById("btnAgregar");
+const btnClose = document.getElementById("cerrarModal")
