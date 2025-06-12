@@ -132,3 +132,33 @@ function AbrirModalEditar (id, nombre, apellido, correo){
     modalEditar.showModal();
 
 }
+
+document.getElementById("frmEditar").addEventListener("submit", async e =>{
+    e.preventDefault(); //Evita que el formulario se envie de golpe
+
+    const id = document.getElementById("txtIdEditar").value;
+    const nombre = document.getElementById("txtNombreEditar").value.trim();
+    const apellido = document.getElementById("txtApellidoEditar").value.trim();
+    const correo = document.getElementById("txtCorreoEditar").value.trim();
+
+     //Validacion de todos los campos
+     if(!id || !nombre || !apellido || !correo){
+         alert("Complete todos los campos")
+         return; //evita q el codigo se siga ejecutando
+     }
+
+     const respuesta = await fetch(`${API_URL}/${id}`/*increible*/, {
+        method: "PUT",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({correo,nombre,apellido})
+     });
+
+     if(respuesta.ok){
+        alert("el registro fue actualizado exitosamente");
+        modalEditar.close();
+        ObtenerRegistros();
+     }
+     else{
+        alert("Hubo un error a la hora de actualizar")
+     }
+});
