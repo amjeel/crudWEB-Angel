@@ -59,6 +59,24 @@
             </form>
         </article>
     </dialog>
+
+    <!--Popup para editar registros-->
+    <dialog id="mdEditar">
+        <article>
+            <header>
+                <a href="#" class="close" id="cerrarEditar"></a>
+                <h3>Editar Integrante</h3>
+            </header>
+            <form id="frmEditar">
+                <input type="hidden" id="txtIdEditar"> <!--Guarda el id de manera oculta-->
+                <input type="text" id="txtNombreEditar" placeholder="Nombre" required>
+                <input type="text" id="txtApellidoEditar" placeholder="Apellido" required>
+                <input type="email" id="txtCorreoEditar" placeholder="Correo Electronico" required>
+                <button type="submit" class="contrast">Guardar Registro</button>
+            </form>
+        </article>
+    </dialog>
+
     <button class="add-button" id="btnAgregar" title="agregar integrante">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" 
         fill="none" stroke="#112ae4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
